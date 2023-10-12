@@ -100,7 +100,7 @@
             top: 0;
             left: 0;
             z-index: -1;
-            background: url('/img/stardust.png') repeat;
+            background: url('stardust.png') repeat;
             animation: animateStars 50s linear infinite;
         }
         @keyframes animateStars {
@@ -119,7 +119,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('/img/stardust.png') repeat;
+            background: url('stardust.png') repeat;
             opacity: 0.5;
             pointer-events: none;
         }
