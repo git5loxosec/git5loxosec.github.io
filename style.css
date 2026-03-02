@@ -8,144 +8,147 @@
 body {
     background: url("stardust.png") center/cover fixed;
     background-color: #05070d;
-    color: #e0f7ff;
-    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
 }
 
-.overlay {
-    position: fixed;
+/* APP WRAPPER */
+.app {
     width: 100%;
-    height: 100%;
-    background: rgba(5, 7, 13, 0.85);
-    z-index: -1;
+    max-width: 430px;
+    min-height: 100vh;
+    padding: 80px 20px 40px;
+    position: relative;
 }
 
-/* HERO */
-
-.hero {
-    text-align: center;
-    padding: 100px 20px 60px;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    color: #00f0ff;
-    text-shadow: 0 0 15px #00f0ff;
-}
-
-.hero h1 span {
-    color: #4da6ff;
-}
-
-.hero p {
-    margin-top: 15px;
-    font-size: 1.1rem;
-    opacity: 0.8;
-}
-
-.hero-buttons {
-    margin-top: 30px;
-}
-
-.btn-primary, .btn-secondary {
-    display: inline-block;
-    padding: 12px 24px;
-    margin: 10px;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s ease;
-    font-weight: bold;
-}
-
-.btn-primary {
-    background: transparent;
-    border: 2px solid #00f0ff;
-    color: #00f0ff;
-}
-
-.btn-primary:hover {
-    background: #00f0ff;
-    color: #000;
-    box-shadow: 0 0 15px #00f0ff;
-}
-
-.btn-secondary {
-    background: transparent;
-    border: 2px solid #ff2e88;
-    color: #ff2e88;
-}
-
-.btn-secondary:hover {
-    background: #ff2e88;
-    color: #000;
-    box-shadow: 0 0 15px #ff2e88;
-}
-
-/* TOOL CARDS */
-
-.tools-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    padding-bottom: 80px;
-}
-
-.tool-card {
+/* GLASS HEADER */
+.glass-header {
+    position: fixed;
+    top: 15px;
+    width: calc(100% - 40px);
+    max-width: 390px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(15, 20, 35, 0.85);
-    margin: 40px 0;
-    padding: 30px;
-    border-radius: 12px;
+    backdrop-filter: blur(15px);
+    background: rgba(15, 20, 35, 0.5);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.25);
+    z-index: 100;
+}
+
+.logo {
+    color: #00f0ff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.header-icons a {
+    color: #ff2e88;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    color: #00f0ff;
+    font-size: 28px;
+    text-shadow: 0 0 15px #00f0ff;
+}
+
+.hero p {
+    color: #b0eaff;
+    opacity: 0.8;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* CARDS */
+.tools {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.card {
+    background: rgba(15, 20, 35, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
     border: 1px solid rgba(0, 240, 255, 0.2);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
     transition: 0.3s ease;
 }
 
-.tool-card:hover {
-    box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
+.card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.4);
 }
 
-.tool-info {
-    flex: 1;
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
 }
 
-.tool-info h2 {
+.card-content {
+    padding: 20px;
+}
+
+.card-content h2 {
     color: #00f0ff;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+    opacity: 0.75;
     margin-bottom: 15px;
 }
 
-.tool-info p {
-    opacity: 0.8;
-    margin-bottom: 20px;
+/* BUTTONS */
+.buttons {
+    display: flex;
+    gap: 10px;
 }
 
-.tool-image img {
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-}
-
-/* FOOTER */
-
-footer {
+.primary, .secondary {
+    flex: 1;
+    padding: 10px;
+    border-radius: 12px;
     text-align: center;
-    padding: 30px;
-    opacity: 0.6;
-    font-size: 0.9rem;
+    font-size: 13px;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-/* MOBILE */
+.primary {
+    border: 1px solid #00f0ff;
+    color: #00f0ff;
+}
 
-@media (max-width: 900px) {
-    .tool-card {
-        flex-direction: column;
-        text-align: center;
-    }
+.primary:hover {
+    background: #00f0ff;
+    color: #000;
+    box-shadow: 0 0 20px #00f0ff;
+}
 
-    .tool-image img {
-        width: 100%;
-        margin-top: 20px;
-    }
+.secondary {
+    border: 1px solid #ff2e88;
+    color: #ff2e88;
+}
+
+.secondary:hover {
+    background: #ff2e88;
+    color: #000;
+    box-shadow: 0 0 20px #ff2e88;
 }
