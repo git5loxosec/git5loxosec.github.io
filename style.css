@@ -36,10 +36,28 @@
     font-family: "Segoe UI", monospace;
 }
 
+/* Fondo principal con ondas */
 body {
-    background: url("stardust.png") center/cover fixed;
-    background-color: #05070d;
-    color: #e0f7ff;
+    background: 
+        /* Capa de ondas: gradientes radiales en posiciones distintas */
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.25) 0%, transparent 30%),
+        radial-gradient(circle at 90% 40%, rgba(255, 46, 136, 0.2) 0%, transparent 35%),
+        radial-gradient(circle at 30% 70%, rgba(138, 43, 226, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 70% 85%, rgba(0, 255, 255, 0.15) 0%, transparent 30%),
+        /* Gradiente base de arriba a abajo con los tres colores */
+        linear-gradient(180deg, 
+            rgba(0, 255, 255, 0.7) 0%, 
+            rgba(255, 46, 136, 0.7) 40%, 
+            rgba(138, 43, 226, 0.7) 80%, 
+            rgba(0, 255, 255, 0.5) 100%
+        );
+    background-attachment: fixed; /* Fijo al hacer scroll */
+    background-blend-mode: screen; /* Mezcla las capas para dar luminosidad */
+}
+
+/* Overlay oscuro (ajusta la opacidad para que se vea el fondo) */
+.bg-overlay {
+    background: rgba(5, 7, 13, 0.5); /* Antes 0.85, ahora más transparente */
 }
 
 /* DARK OVERLAY */
