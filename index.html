@@ -1,79 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>LoxoSec by git5</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoxoSec by git5</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.png">
 </head>
+
 <body>
 
-    <div class="overlay"></div>
+<div class="bg-overlay"></div>
 
-    <header class="hero">
-        <h1>LoxoSec <span>by git5</span></h1>
-        <p>Offensive Research • Linux • Security Tools</p>
+<!-- FLOATING GLASS HEADER -->
+<header class="glass-header">
+    <div class="logo">
+        <h1>LoxoSec</h1>
+        <span>by git5</span>
+    </div>
+    <div class="header-actions">
+        <a href="https://github.com/git5loxosec" target="_blank">GitHub</a>
+    </div>
+</header>
 
-        <div class="hero-buttons">
-            <a href="#tools" class="btn-primary">Explore Tools</a>
-            <a href="https://github.com/git5loxosec" target="_blank" class="btn-secondary">GitHub</a>
-        </div>
-    </header>
+<!-- MAIN CONTENT -->
+<main class="app-container">
 
-    <section id="tools" class="tools-container">
-
-        <!-- Authai -->
-        <div class="tool-card">
-            <div class="tool-info">
-                <h2>🐘 Authai</h2>
-                <p>Termux-first CLI that builds debug APKs from Gradle projects.</p>
-                <div class="card-buttons">
-                    <a href="#" class="btn-primary">View</a>
-                    <a href="#" class="btn-secondary">Download</a>
-                </div>
-            </div>
-            <div class="tool-image">
-                <img src="authai.jpg" alt="Authai">
-            </div>
-        </div>
-
-        <!-- rMETAshell -->
-        <div class="tool-card">
-            <div class="tool-info">
-                <h2>☠ rMETAshell</h2>
-                <p>Command-line tool for injecting reverse shell commands into metadata files.</p>
-                <div class="card-buttons">
-                    <a href="#" class="btn-primary">View</a>
-                    <a href="#" class="btn-secondary">Download</a>
-                </div>
-            </div>
-            <div class="tool-image">
-                <img src="rmetashell.png" alt="rMETAshell">
+    <!-- Authai -->
+    <div class="app-card">
+        <img src="authai.jpg" class="card-img">
+        <div class="card-content">
+            <h2>Authai</h2>
+            <p>Termux-first CLI builder for debug APK workflows.</p>
+            <div class="card-buttons">
+                <a href="#">View</a>
+                <a href="#">Download</a>
             </div>
         </div>
+    </div>
 
-        <!-- Loxocat2 -->
-        <div class="tool-card">
-            <div class="tool-info">
-                <h2>🐱 Loxocat2</h2>
-                <p>Powerful penetration testing toolbox with listener & payload utilities.</p>
-                <div class="card-buttons">
-                    <a href="#" class="btn-primary">View</a>
-                    <a href="#" class="btn-secondary">Download</a>
-                </div>
-            </div>
-            <div class="tool-image">
-                <img src="loxocat.png" alt="Loxocat2">
+    <!-- rMETAshell -->
+    <div class="app-card">
+        <img src="rmetashell.png" class="card-img">
+        <div class="card-content">
+            <h2>rMETAshell</h2>
+            <p>Reverse shell metadata injection utility.</p>
+            <div class="card-buttons">
+                <a href="#">View</a>
+                <a href="#">Download</a>
             </div>
         </div>
+    </div>
 
-    </section>
+    <!-- Loxocat2 -->
+    <div class="app-card">
+        <img src="loxocat.png" class="card-img">
+        <div class="card-content">
+            <h2>Loxocat2</h2>
+            <p>Penetration toolkit with payload & listener utilities.</p>
+            <div class="card-buttons">
+                <a href="#">View</a>
+                <a href="#">Download</a>
+            </div>
+        </div>
+    </div>
 
-    <footer>
-        <p>Built with tmux & caffeine ☕</p>
-        <p>© 2026 LoxoSec</p>
-    </footer>
+</main>
+
+<footer class="app-footer">
+   LoxoSec 2022 <br> Built with ♥️ & 🐘
+</footer>
 
 </body>
 </html>
