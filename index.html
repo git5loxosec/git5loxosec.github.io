@@ -1,216 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Metadatos para vista previa en redes sociales (Open Graph) -->
-<meta property="og:title" content="LoxoSec - Cybersecurity Group">
-<meta property="og:description" content="🐘 Forge your own path in cybersecurity. Authai, rMETAshell & Loxocat2: tools crafted for the curious and the defenders.">
-<meta property="og:image" content="https://git5loxosec.github.io/preview.jpg">
-<meta property="og:url" content="https://git5loxosec.github.io/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">  
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LoxoSec by git5</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="favicon.png">
- // Create particle effect
-        const particlesContainer = document.getElementById('particles-container');
-        const particleCount = 80;
-        
-        // Create particles
-        for (let i = 0; i < particleCount; i++) {
-            createParticle();
-        }
-        
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            
-            // Random size (small)
-            const size = Math.random() * 3 + 1;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            
-            // Initial position
-            resetParticle(particle);
-            
-            particlesContainer.appendChild(particle);
-            
-            // Animate
-            animateParticle(particle);
-        }
-        
-        function resetParticle(particle) {
-            // Random position
-            const posX = Math.random() * 100;
-            const posY = Math.random() * 100;
-            
-            particle.style.left = `${posX}%`;
-            particle.style.top = `${posY}%`;
-            particle.style.opacity = '0';
-            
-            return {
-                x: posX,
-                y: posY
-            };
-        }
-        
-        function animateParticle(particle) {
-            // Initial position
-            const pos = resetParticle(particle);
-            
-            // Random animation properties
-            const duration = Math.random() * 10 + 10;
-            const delay = Math.random() * 5;
-            
-            // Animate with GSAP-like timing
-            setTimeout(() => {
-                particle.style.transition = `all ${duration}s linear`;
-                particle.style.opacity = Math.random() * 0.3 + 0.1;
-                
-                // Move in a slight direction
-                const moveX = pos.x + (Math.random() * 20 - 10);
-                const moveY = pos.y - Math.random() * 30; // Move upwards
-                
-                particle.style.left = `${moveX}%`;
-                particle.style.top = `${moveY}%`;
-                
-                // Reset after animation completes
-                setTimeout(() => {
-                    animateParticle(particle);
-                }, duration * 1000);
-            }, delay * 1000);
-        }
-        
-        // Mouse interaction
-        document.addEventListener('mousemove', (e) => {
-            // Create particles at mouse position
-            const mouseX = (e.clientX / window.innerWidth) * 100;
-            const mouseY = (e.clientY / window.innerHeight) * 100;
-            
-            // Create temporary particle
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            
-            // Small size
-            const size = Math.random() * 4 + 2;
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            
-            // Position at mouse
-            particle.style.left = `${mouseX}%`;
-            particle.style.top = `${mouseY}%`;
-            particle.style.opacity = '0.6';
-            
-            particlesContainer.appendChild(particle);
-            
-            // Animate outward
-            setTimeout(() => {
-                particle.style.transition = 'all 2s ease-out';
-                particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
-                particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
-                particle.style.opacity = '0';
-                
-                // Remove after animation
-                setTimeout(() => {
-                    particle.remove();
-                }, 2000);
-            }, 10);
-            
-            // Subtle movement of gradient spheres
-            const spheres = document.querySelectorAll('.gradient-sphere');
-            const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
-            const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
-            
-            spheres.forEach(sphere => {
-                const currentTransform = getComputedStyle(sphere).transform;
-                sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            });
-        });
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="LoxoSec - Cybersecurity Group">
+    <meta property="og:description" content="🐘 Forge your own path in cybersecurity. Authai, rMETAshell & Loxocat2: tools crafted for the curious and the defenders.">
+    <meta property="og:image" content="https://git5loxosec.github.io/preview.jpg">
+    <meta property="og:url" content="https://git5loxosec.github.io/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>LoxoSec by git5</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
 </head>
-
 <body>
-    <div class="gradient-background">
+    <!-- Background FX -->
+    <div class="gradient-background" aria-hidden="true">
         <div class="gradient-sphere sphere-1"></div>
         <div class="gradient-sphere sphere-2"></div>
         <div class="gradient-sphere sphere-3"></div>
         <div class="glow"></div>
         <div class="grid-overlay"></div>
         <div class="noise-overlay"></div>
-        <div class="particles-container" id="particles-container"></div>    
-<div class="bg-overlay">
-
-<!-- FLOATING GLASS HEADER -->
-<header class="glass-header">
-    <div class="logo">
-        <h1>LoxoSec</h1>
-        <span>by git5</span>
+        <div class="particles-container" id="particles-container"></div>
     </div>
-    <div class="header-actions">
-        <a href="https://github.com/git5loxosec" target="_blank">GitHub</a>
-    </div>
-</header>
 
-<!-- MAIN CONTENT -->
-<main class="app-container">
-
- <!-- Intro -->
- <div class="app-card">
-     <div class="card-content">
-    <p>🐘 LoxoSec: forge your own path in cybersecurity. Tools crafted for the curious, the relentless, and the defenders of tomorrow.</p>
-     </div>
- </div>
-
-    <!-- Authai -->
-    <div class="app-card">
-        <img src="authai.jpg" class="card-img">
-        <div class="card-content">
-            <h2>Authai</h2>
-            <p>Termux-first CLI builder for debug APK workflows.</p>
-            <div class="card-buttons">
-                <a href="authai.jpg">View</a>
-                <a href="https://github.com/git5loxosec/Authai">Download</a>
+    <div class="site-shell">
+        <!-- Header -->
+        <header class="glass-header">
+            <div class="logo-wrap">
+                <h1 class="logo-title">LoxoSec</h1>
+                <span class="logo-sub">by git5</span>
             </div>
-        </div>
-    </div>
 
-    <!-- rMETAshell -->
-    <div class="app-card">
-        <img src="rmetashell.png" class="card-img">
-        <div class="card-content">
-            <h2>rMETAshell</h2>
-            <p>Reverse shell metadata injection utility.</p>
-            <div class="card-buttons">
-                <a href="rmetashell.png">View</a>
-                <a href="https://github.com/git5loxosec/rMETAshell">Download</a>
+            <a
+                class="header-link"
+                href="https://github.com/git5loxosec"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+        </header>
+
+        <!-- Main -->
+        <main class="app-container">
+            <section class="hero-card">
+                <p>
+                    🐘 LoxoSec: forge your own path in cybersecurity. Tools crafted for the curious,
+                    the relentless, and the defenders of tomorrow.
+                </p>
+            </section>
+
+            <section class="app-card">
+                <img src="authai.jpg" class="card-img" alt="Preview image for Authai">
+                <div class="card-content">
+                    <h2>Authai</h2>
+                    <p>Termux-first CLI builder for debug APK workflows.</p>
+                    <div class="card-buttons">
+                        <a href="authai.jpg" target="_blank" rel="noopener noreferrer">View</a>
+                        <a href="https://github.com/git5loxosec/Authai" target="_blank" rel="noopener noreferrer">Download</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="app-card">
+                <img src="rmetashell.png" class="card-img" alt="Preview image for rMETAshell">
+                <div class="card-content">
+                    <h2>rMETAshell</h2>
+                    <p>Reverse shell metadata injection utility.</p>
+                    <div class="card-buttons">
+                        <a href="rmetashell.png" target="_blank" rel="noopener noreferrer">View</a>
+                        <a href="https://github.com/git5loxosec/rMETAshell" target="_blank" rel="noopener noreferrer">Download</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="app-card">
+                <img src="loxocat.png" class="card-img" alt="Preview image for Loxocat2">
+                <div class="card-content">
+                    <h2>Loxocat2</h2>
+                    <p>Penetration toolkit with payload & listener utilities.</p>
+                    <div class="card-buttons">
+                        <a href="loxocat.png" target="_blank" rel="noopener noreferrer">View</a>
+                        <a href="https://github.com/git5loxosec/loxocat2" target="_blank" rel="noopener noreferrer">Download</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>
+                <a href="https://free-hit-counters.net/" target="_blank" rel="noopener noreferrer">
+                    freehitcounters
+                </a>
+            </p>
+
+            <div class="counter-scripts">
+                <script type="text/javascript" src="https://www.freevisitorcounters.com/auth.php?id=48f05192000927f61ed829cc21ea8b4ff1f3616a"></script>
+                <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1518151/t/1"></script>
             </div>
-        </div>
+
+            <p>LoxoSec 2022<br>Built with ♥️ & 🐘</p>
+        </footer>
     </div>
 
-    <!-- Loxocat2 -->
-    <div class="app-card">
-        <img src="loxocat.png" class="card-img">
-        <div class="card-content">
-            <h2>Loxocat2</h2>
-            <p>Penetration toolkit with payload & listener utilities.</p>
-            <div class="card-buttons">
-                <a href="loxocat.png">View</a>
-                <a href="https://github.com/git5loxosec/loxocat2">Download</a>
-            </div>
-        </div>
-    </div>
-</div>
-    </div>
-</main>
+    <script>
+        const particlesContainer = document.getElementById('particles-container');
+        const particleCount = window.innerWidth < 768 ? 28 : 70;
 
-<footer class="app-footer">
-    <p>
-         <a href='https://free-hit-counters.net/'>freehitcounters</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=48f05192000927f61ed829cc21ea8b4ff1f3616a'></script>
-<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1518151/t/1"></script>
-    </p>
-   LoxoSec 2022 <br> Built with ♥️ & 🐘
-</footer>
+        if (particlesContainer) {
+            for (let i = 0; i < particleCount; i++) {
+                createParticle();
+            }
+        }
 
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            const size = Math.random() * 2.5 + 1;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+
+            resetParticle(particle);
+            particlesContainer.appendChild(particle);
+            animateParticle(particle);
+        }
+
+        function resetParticle(particle) {
+            const posX = Math.random() * 100;
+            const posY = Math.random() * 100;
+
+            particle.style.left = `${posX}%`;
+            particle.style.top = `${posY}%`;
+            particle.style.opacity = '0';
+
+            return { x: posX, y: posY };
+        }
+
+        function animateParticle(particle) {
+            const pos = resetParticle(particle);
+            const duration = Math.random() * 8 + 10;
+            const delay = Math.random() * 4;
+
+            setTimeout(() => {
+                particle.style.transition = `all ${duration}s linear`;
+                particle.style.opacity = Math.random() * 0.22 + 0.08;
+
+                const moveX = pos.x + (Math.random() * 14 - 7);
+                const moveY = pos.y - Math.random() * 20;
+
+                particle.style.left = `${moveX}%`;
+                particle.style.top = `${moveY}%`;
+
+                setTimeout(() => animateParticle(particle), duration * 1000);
+            }, delay * 1000);
+        }
+
+        if (window.innerWidth >= 768) {
+            document.addEventListener('mousemove', (e) => {
+                if (!particlesContainer) return;
+
+                const mouseX = (e.clientX / window.innerWidth) * 100;
+                const mouseY = (e.clientY / window.innerHeight) * 100;
+
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                const size = Math.random() * 3 + 1.5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${mouseX}%`;
+                particle.style.top = `${mouseY}%`;
+                particle.style.opacity = '0.45';
+
+                particlesContainer.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.style.transition = 'all 1.6s ease-out';
+                    particle.style.left = `${mouseX + (Math.random() * 8 - 4)}%`;
+                    particle.style.top = `${mouseY + (Math.random() * 8 - 4)}%`;
+                    particle.style.opacity = '0';
+
+                    setTimeout(() => particle.remove(), 1600);
+                }, 10);
+            });
+        }
+    </script>
 </body>
-</html>
+ </html>
