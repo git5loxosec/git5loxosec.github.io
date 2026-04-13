@@ -5,6 +5,12 @@ async function loadGitHubRepos() {
 
     if(!mainContainer) return;
 
+    // Aplicamos un margen al contenedor para separar los bloques
+    mainContainer.style.display = "flex";
+    mainContainer.style.flexDirection = "column";
+    mainContainer.style.gap = "20px"; // Espacio entre tarjetas
+    mainContainer.style.marginBottom = "20px"; 
+
     try {
         const res = await fetch(`https://api.github.com/users/${user}/repos?per_page=100`);
         if (!res.ok) throw new Error('API Error');
@@ -20,8 +26,9 @@ async function loadGitHubRepos() {
 
         topRepos.forEach(repo => {
             const card = document.createElement('div');
-            // Usamos app-card para que herede el estilo de tu CSS
             card.className = 'app-card';
+            // Añadimos un margen extra de seguridad
+            card.style.marginBottom = "0px"; 
 
             card.innerHTML = `
                 <div class="card-content">
